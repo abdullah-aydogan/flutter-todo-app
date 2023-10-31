@@ -29,6 +29,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Image.asset("images/write_img.png"),
               TextField(
                 keyboardType: TextInputType.multiline,
                 minLines: 1,

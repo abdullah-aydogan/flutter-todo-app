@@ -42,6 +42,7 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Image.asset("images/edit_img.png"),
               TextField(
                 keyboardType: TextInputType.multiline,
                 minLines: 1,

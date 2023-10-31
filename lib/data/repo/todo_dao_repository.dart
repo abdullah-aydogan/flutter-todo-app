@@ -35,7 +35,7 @@ class TodoDaoRepository {
   Future<List<ToDos>> listTodos() async {
 
     var db = await DatabaseHelper.databaseAccess();
-    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM todos");
+    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM todos ORDER BY todo_id DESC");
 
     return List.generate(maps.length, (index) {
 
@@ -48,7 +48,7 @@ class TodoDaoRepository {
   Future<List<ToDos>> search(String searchWord) async {
 
     var db = await DatabaseHelper.databaseAccess();
-    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM todos WHERE todo_content LIKE '%$searchWord%'");
+    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM todos WHERE todo_content LIKE '%$searchWord%' ORDER BY todo_id DESC");
 
     return List.generate(maps.length, (i) {
 

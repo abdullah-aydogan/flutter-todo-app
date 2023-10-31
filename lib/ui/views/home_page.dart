@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/data/entity/todos.dart';
 import 'package:todo_app/ui/colors.dart';
@@ -17,13 +18,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   bool searchStatus = false;
+  bool isVisibleFab = true;
 
-  @override
-  void initState() {
-
-    super.initState();
-    context.read<HomePageCubit>().listTodos();
-  }
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +68,7 @@ class _HomePageState extends State<HomePage> {
           if(todoList.isNotEmpty) {
             return ListView.builder(
               itemCount: todoList.length,
+              controller: scrollController,
               itemBuilder: (context, index) {
                 var todo = todoList[index];
 
@@ -82,6 +80,14 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
                     child: Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        side: BorderSide(
+                          color: primaryColor,
+                        )
+                      ),
+
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -151,16 +157,45 @@ class _HomePageState extends State<HomePage> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationPage())).then((value) {
-            context.read<HomePageCubit>().listTodos();
-          });
-        },
-        backgroundColor: secondaryColor,
-        foregroundColor: Colors.black,
-        child: const Icon(Icons.add),
+      floatingActionButton: AnimatedOpacity(
+        opacity: isVisibleFab ? 1 : 0,
+        duration: const Duration(milliseconds: 500),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationPage())).then((value) {
+              context.read<HomePageCubit>().listTodos();
+            });
+          },
+          backgroundColor: secondaryColor,
+          foregroundColor: Colors.black,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+
+    scrollController.addListener(() {
+      if(scrollController.position.userScrollDirection == ScrollDirection.reverse) {
+        if(isVisibleFab != false) {
+          setState(() {
+            isVisibleFab = false;
+          });
+        }
+      }
+
+      else {
+        if(isVisibleFab != true) {
+          setState(() {
+            isVisibleFab = true;
+          });
+        }
+      }
+    });
+
+    super.initState();
+    context.read<HomePageCubit>().listTodos();
   }
 }
