@@ -1,16 +1,33 @@
-# To-Do Application
+# To-Do Uygulaması
 
 Udemy'deki Flutter Bootcamp eğitiminde verilen yedinci ödev çalışması (SQLite veritabanı)
 
-## Getting Started
+## Uygulamadan Görseller
 
-This project is a starting point for a Flutter application.
+![App Presentation](https://github.com/abdullah-aydogan/flutter-todo-app/assets/117303457/025056c4-701d-4a86-b06e-a22ad802b2f0)
 
-A few resources to get you started if this is your first Flutter project:
+## Uygulama Hakkında Bilgiler
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+✔ Flutter ile Android ve iOS platformlarında çalışacak şekilde kodlandı.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+✔ SQLite veritabanı kullanıldı.
+
+✔ Uygulamanın veritabanı tablosu 3 farklı alandan oluşmaktadır. Bu alanlar; To-Do ID numarası, To-Do içerik ve To-Do durum.
+
+✔ SQLite veritabanı üzerinde bool değişken tutulamadığı için int veri tipi kullanılmıştır. (To-Do durum kontrolü için)
+
+✔ Bloc (Business Logic Component) uygulama mimarisine uygun kodlama yapıldı.
+
+✔ Uygulama 3 adet sayfadan oluşmaktadır. Bu sayfalar; anasayfa, To-Do ekleme sayfası ve To-Do güncelleme sayfası.
+
+✔ Listelenen To-Do'ların sol tarafındaki butona basıldığında To-Do'ların üzeri çiziliyor ve yeşil tik işareti ekleniyor.
+
+✔ Listelenen To-Do'ların sağ tarafındaki butona basıldığında ise To-Do silme işlemi yapılmaktadır.
+
+✔ To-Do ekleme ve güncelleme işlemleri yapıldıktan sonra anasayfaya geçiş yapılmaktadır.
+
+✔ Anasayfa üzerinde To-Do araması yapılabiliyor.
+
+✔ To-Do listesini aşağıya doğru kaydırdıkça sağ altta yer alan Floating Action Button kaybolmaktadır.
+
+✔ To-Do listesini yukarıya doğru kaydırdıkça kaybolan Floating Action Button geri gelmektedir.
