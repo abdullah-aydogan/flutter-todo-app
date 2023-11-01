@@ -12,7 +12,7 @@ Udemy'deki Flutter Bootcamp eğitiminde verilen yedinci ödev çalışması (SQL
 
 ✔ SQLite veritabanı kullanıldı.
 
-✔ Uygulamanın veritabanı tablosu 3 farklı alandan oluşmaktadır. Bu alanlar; To-Do ID numarası, To-Do içerik ve To-Do durum.
+✔ Uygulamanın veritabanı tablosu 3 farklı alandan oluşmaktadır. Bu alanlar; To-Do ID, To-Do içerik ve To-Do durum.
 
 ✔ SQLite veritabanı üzerinde bool değişken tutulamadığı için int veri tipi kullanılmıştır. (To-Do durum kontrolü için)
 
